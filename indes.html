@@ -11,9 +11,27 @@
     function mudar(objeto, imagem){
         sol.src = imagem;
     }
+    function mudar(objeto, imagem) {
+
+            var elemento = document.getElementById(objeto);
+            if (elemento) {
+                elemento.style.opacity = 0;      /* Define a opacidade para 0 para iniciar a transição */
+                setTimeout(function() {
+                    elemento.src = imagem;     /* Altera a imagem após um pequeno atraso */
+                    elemento.style.opacity = 1;      /* Define a opacidade de volta para 1 para a transição suave */
+                }, 300);     /* Atraso de 500 milissegundos (0,5 segundos) */
+            } else {
+                console.error("Elemento não encontrado com o ID: " + objeto);
+            }
+        }
 </script>
 
 <style>
+            #sol {
+            width: 300px;    /* Defina a largura da imagem */
+            height: 200px;    /* Defina a altura da imagem */
+            transition: opacity 0.5s;    /* Adicione uma transição de 0.5 segundos para a opacidade */
+        }
 
     img{
         width: 250px;
